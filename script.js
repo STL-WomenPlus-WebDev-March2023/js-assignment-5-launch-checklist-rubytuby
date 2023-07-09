@@ -24,10 +24,9 @@ window.addEventListener("load", function() {
         if (pilotInput.value === "" || copilotInput.value === "" || fuelInput.value === "" || cargoInput.value === "") {
             alert("All fields are required.")
             event.preventDefault();
-        };
-        if (Number.isNaN(pilotInput.value) || Number.isNaN(copilotInput.value) || isNaN(fuelInput.value) || isNaN(cargoInput)) {
+        } else if (!isNaN(pilotInput.value) || !isNaN(copilotInput.value) || isNaN(fuelInput.value) || isNaN(cargoInput.value)) {
             alert("All fields must have the required input type.")
-            event.preventDefault()
+            event.preventDefault();
         };
     })
 })
