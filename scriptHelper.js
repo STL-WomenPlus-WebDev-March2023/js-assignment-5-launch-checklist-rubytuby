@@ -30,6 +30,10 @@ function validateInput(testInput) {
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let launchStatus = document.getElementById("launchStatus");
+    let pilotStatus = document.getElementById("pilotStatus");
+    let copilotStatus = document.getElementById("copilotStatus");
+    let fuelStatus = document.getElementById("fuelStatus");
+    let cargoStatus = document.getElementById("cargoStatus");
     
     let numArr = [fuelLevel, cargoLevel]
     for (let i = 0; i < numArr.length; i++){
@@ -37,24 +41,24 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             numArr.splice([i], 1, Number(numArr[i]))
         }
     };
-    
+
     list.style.visibility = "visible";
-    document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready to launch`;
-    document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready to launch`;
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
     
     if (numArr[0] < 10000 && numArr[1] > 10000) {
         launchStatus.style.color = "#C7254E";
         launchStatus.innerHTML = "Shuttle Not Ready for Launch";
-        document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
-        document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
+        fuelStatus.innerHTML = "Fuel level too low for launch";
+        cargoStatus.innerHTML = "Cargo mass too heavy for launch";
     } else if (numArr[0] < 10000) {
         launchStatus.style.color = "#C7254E"
         launchStatus.innerHTML = "Shuttle Not Ready for Launch";
-        document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch";
+        fuelStatus.innerHTML = "Fuel level too low for launch";
     } else if (numArr[1] > 10000) {
         launchStatus.style.color = "#C7254E";
         launchStatus.innerHTML = "Shuttle Not Ready for Launch";
-        document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch";
+        cargoStatus.innerHTML = "Cargo mass too heavy for launch";
     } else {
         launchStatus.style.color = "#419F6A";
         launchStatus.innerHTML = "Shuttle is Ready for Launch";
