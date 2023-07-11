@@ -18,7 +18,8 @@ window.addEventListener("load", function() {
 });
 
 window.addEventListener("load", function() {
-    list = document.getElementById("faultyItems")
+    list = document.getElementById("faultyItems");
+    list.style.visibility = "hidden";
     let form = document.querySelector("form");
     form.addEventListener("submit", function(event) {
         event.preventDefault();
