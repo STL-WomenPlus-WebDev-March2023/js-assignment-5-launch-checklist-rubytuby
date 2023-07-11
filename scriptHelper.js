@@ -29,12 +29,15 @@ function validateInput(testInput) {
 };
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+    let launchStatus = document.getElementById("launchStatus");
+    
     let numArr = [fuelLevel, cargoLevel]
     for (let i = 0; i < numArr.length; i++){
         if (validateInput(numArr[i]) === "Is a Number") {
             numArr.splice([i], 1, Number(numArr[i]))
         }
     };
+    
     list.style.visibility = "visible";
     document.getElementById("pilotStatus").innerHTML = `Pilot ${pilot} is ready to launch`;
     document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilot} is ready to launch`;
